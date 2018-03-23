@@ -1,0 +1,64 @@
+<idea-plugin>
+    <id>com.jenny.yy.plugin.yyp</id>
+    <name>YYPFormat</name>
+    <version>1.0</version>
+    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+    <description><![CDATA[
+    yyprotocol协议转java代码：	<br>
+    输入：	<br>
+    uint32_t m_status;	<br>
+	uint32_t m_anchor;	<br>
+	uint32_t m_position;	<br>
+	<br>
+	输出：	<br>
+	public long m_status;	<br>
+    public long m_anchor;	<br>
+    public long m_position;	<br>
+
+    public void pushPacketData() {	<br>
+        pushInt32((int) m_status);	<br>
+        pushInt32((int) m_anchor);	<br>
+        pushInt32((int) m_position);	<br>
+    }
+	<br>
+    public void popPacketData() {	<br>
+        try {	<br>
+            popUint32();	<br>
+            popUint32();	<br>
+            popUint32();	<br>
+        } catch (Exception e) {	<br>
+            e.printStackTrace();	<br>
+        }	<br>
+    }	<br>
+	<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="141.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="YYPFormatId" class="YYPFormat" text="YYProtocolFormat" description="generate YYPFormat code">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>
