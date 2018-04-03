@@ -128,15 +128,15 @@ public class Util {
     public static String cppToResponseMethod(Element element) {
         String cppType = element.getType();
         if (cppType.equals("int32_t")) {
-            return "popInt32();";
+            return element.getValue() + " = popInt32();";
         } else if (cppType.equals("uint32_t")) {
-            return "popUint32();";
+            return element.getValue() + " = popUint32();";
         } else if (cppType.equals("int64_t")) {
-            return "popInt64();";
+            return element.getValue() + " = popInt64();";
         } else if (cppType.equals("std::string")) {
-            return "popString16();";
+            return element.getValue() + " = popString16();";
         } else {
-            return "pop" + element.getValue() + "();";
+            return element.getValue() + " = pop" + element.getValue() + "();";
         }
     }
 }
