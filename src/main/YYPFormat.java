@@ -1,3 +1,5 @@
+package main;
+
 import utils.Util;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;

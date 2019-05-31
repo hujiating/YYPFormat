@@ -54,19 +54,26 @@ public class Util {
         }
     }
 
-    public static ArrayList<Element> convertToBean(String str) {
+    public static ArrayList<Element> convertToBean(Editor mEditor, String str) {
         //去掉注释
-        /*StringBuilder newStr = new StringBuilder();
-        String[] lines = str.split("\n");
+        StringBuilder newStr = new StringBuilder();
+        String[] lines = str.split("\\r?\\n");
+        String[] lines2 = str.split("\n");
+        String[] lines3 = str.split("\\n");
+        String[] line4 = str.split("\\\\n");
+//        showPopupBalloon(mEditor, "lines.length: " + lines.length + " lines2.length: " + lines2.length + " line3.length: " + lines3.length + " line4.length: " + line4.length, 5);
+//        System.out.println("lines.length: " + lines.length + " lines2.length: " + lines2.length + " line3.length: " + lines3.length);
+        ArrayList<String> newLinesExcludeAnnotation = new ArrayList<>();
         for (String line : lines) {
             if (line.contains("//")) {
                 int index = line.indexOf("//");
-                newStr.append(line.substring(0, index));
+                newLinesExcludeAnnotation.add(line.substring(0, index).trim());
+                newStr.append(line.substring(0, index).trim());
             }
-        }*/
+        }
 
         ArrayList<Element> elementList = new ArrayList<>();
-        String[] lineArray = str.toString().split(";");
+        String[] lineArray = newStr.toString().split(";");
         for (String line : lineArray) {
             line = line.trim();
             String[] strSplitArray = line.split(" ");

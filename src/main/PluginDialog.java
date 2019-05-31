@@ -1,3 +1,5 @@
+package main;
+
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiClass;
@@ -73,11 +75,11 @@ public class PluginDialog extends JDialog {
     private void onOK() {
         dispose();
         // add your code here
-        String str = textPane1.getText().trim();
+        String str = textPane1.getText();
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        List<Element> elements = Util.convertToBean(str);
+        List<Element> elements = Util.convertToBean(mEditor, str);
         setCreator(elements);
     }
 
@@ -101,17 +103,14 @@ public class PluginDialog extends JDialog {
         dialog.setVisible(true);
         System.exit(0);*/
 
-       /* PluginDialog pluginDialog = new PluginDialog();
+
+        PluginDialog pluginDialog = new PluginDialog();
 
         pluginDialog.setSize(600, 400);
         pluginDialog.setLocationRelativeTo(null);
-        pluginDialog.setVisible(true);*/
+        pluginDialog.setVisible(true);
 
-        Util.convertToBean("std::string m_topicType;");
 
-        String s = "ss";
-        s.replace("int32","");
-        System.out.print(s);
     }
 
 }

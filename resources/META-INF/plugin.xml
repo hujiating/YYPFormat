@@ -56,7 +56,7 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="YYPFormatId" class="YYPFormat" text="YYPFormat" description="generate YYPFormat code">
+        <action id="YYPFormatId" class="main.YYPFormat" text="YYPFormat" description="generate YYPFormat code">
             <add-to-group group-id="GenerateGroup" anchor="last"/>
         </action>
     </actions>
